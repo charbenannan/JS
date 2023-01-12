@@ -1,0 +1,54 @@
+const fs = require('fs');
+
+process.stdin.resume();
+process.stdin.setEncoding('ascii');
+
+var input_stdin = "";
+process.stdin.on('data', function (data) {
+    input_stdin += data;
+});
+
+process.stdin.on('end', function () {
+   fptr = fs.createWriteStream(process.env['OUTPUT_FILE_PATH']);
+   fptr.write("\n");
+   inputs = input_stdin.split('\n');
+   var iterator = 0;
+       k = parseInt(inputs[iterator++].trim());
+       ar_count = parseInt(inputs[iterator++].trim());
+       arInputItems = inputs[iterator++].split(" ")
+
+       ar = [];
+
+       for( let i=0; i<ar_count;i++) {
+           ar_item = arInputItems[i].trim();
+           ar.push(ar_item);
+       }
+       str = inputs[iterator++].trim();
+
+
+   outcome = solve(k,ar,str);
+
+   for(let i=0;i<outcome.length;i++) {
+        fptr.write(outcome[i].toString());
+        if(i<outcome.length-1)
+            fptr.write(" ");
+   }
+   fptr.write("\n");
+
+   fptr.end();
+
+});
+
+// implement method/function with name 'solve' below.
+//
+// The function accepts following parameters:
+//  1. k is of type INTEGER.
+//  2. ar is of type STRING ARRAY.
+//  3. str is of type STRING.
+
+
+function solve(k,ar,str) {
+    // Write your code here
+
+    return;
+}
